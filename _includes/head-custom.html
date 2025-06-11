@@ -1,0 +1,17 @@
+<!-- ✨ HEAD-CUSTOM LOADED ✨ -->
+{% comment %} only on post pages {% endcomment %}
+{% if page.collection == 'posts' %}
+  <!-- sidebar-hover script -->
+  <script src="{{ '/assets/js/sidebar-hover.js' | relative_url }}"></script>
+
+  <!-- hide sidebar by default, show on hover -->
+  <style>
+    #sidebar {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-out;
+    }
+    body.sidebar-open #sidebar {
+      transform: translateX(0);
+    }
+  </style>
+{% endif %}
