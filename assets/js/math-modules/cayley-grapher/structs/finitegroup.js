@@ -6,7 +6,7 @@ export class FiniteGroup {
      * Represents a finite group. Uses matrices over GL(p^k) or integers over Z/nZ as elements.  
      * @constructor
      * @param {Array} generators matrix(ces) over GLFs  
-     * @param {Number} n order of the GLF
+     * @param {Number} name of our GLF
      */
     constructor(generator, name) { 
         this.name = name; 

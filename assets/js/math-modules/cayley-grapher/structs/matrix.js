@@ -6,6 +6,13 @@
  */
 
 import {FiniteFieldRegistry} from "./finitefield.js"; // keep singleton registry of finite field! 
+    /**
+     * Represents a matrix over finite field. 
+     * @constructor
+     * @param {Number} order of our GLF   
+     * @param {Number} row 
+     * @param {Number} column
+     */
 export class Matrix { 
     constructor(order, m, n) { 
         this.glf = FiniteFieldRegistry.getField(order); // YES THIS IS BETTER WHAT WAS I THINKING 

@@ -6,12 +6,58 @@
 
   <!-- hide sidebar by default, show on hover -->
   <style>
+    /* no transition by default */
     #sidebar {
-      transform: translateX(-100%);
-      transition: transform 0.3s ease-out;
+      transform: translateX(-80%);
     }
+    
+    /* open state always applies the transform immediately */
     body.sidebar-open #sidebar {
       transform: translateX(0);
     }
+    
+    /* only when .sidebar-animated is present do we get a smooth slide */
+    body.sidebar-animated #sidebar {
+      transition: transform 0.3s ease-out;
+    }
+  </style>
+
+<!-- sidebar above everything else -->  
+  <style> 
+    #sidebar {
+    position: fixed;       /* pin it to the viewport */
+    top: 0;
+    left: 0;
+    height: 100vh;         /* full height */
+    width: 300;          /* match your theme’s sidebar width */
+    z-index: 9999;         /* above all other content */
+    background: rgba(30,30,30,255); /* ensure it has an opaque background */
+  }
   </style>
 {% endif %}
+
+<!-- wider text --> 
+  <style> 
+    #main-wrapper .container {
+      max-width: auto;      /* pick the line-length you like */
+      margin-left:  auto;    /* these two lines center it */
+      margin-right: auto;
+      padding-left: 0;       /* remove the default 12-px gutter */
+      padding-right: 0;
+  }
+
+  /* If you need to override even tighter column rules, you can do: */
+    main[aria-label="Main Content"] {
+      width: 100%;
+      max-width: none;
+      padding-left: 1rem;    /* small inner gutter so text isn’t flush */
+      padding-right: 1rem;
+    text-align: justify;
+    text-justify: inter-word;   /* favors spacing between words */
+  }
+  </style>
+
+<!-- centering override --> 
+<style>
+  
+</style> 
