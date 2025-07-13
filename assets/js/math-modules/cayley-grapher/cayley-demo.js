@@ -7,7 +7,7 @@ import { FiniteGroup } from "./structs/finitegroup.js";
 import { Matrix }    from "./structs/matrix.js";
 
 const allGroups = await fetch("../../assets/js/math-modules/cayley-grapher/data/output.json").then(res => res.json());
-const groupData = allGroups.find(x => x.name === "c2^2xc4"); 
+const groupData = allGroups.find(x => x.name === "c2^2xc4"); // cool looking hypercube
 const mtc = groupData.generators.map((mtx) => {
     const temp = new Matrix(groupData.glforder, mtx.length); 
     temp.contents = mtx; 

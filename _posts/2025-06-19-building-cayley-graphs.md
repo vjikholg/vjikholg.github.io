@@ -16,15 +16,15 @@ Let $$S$$ be a set of elements. A bijection (injective/surjective map) $$\sigma:
 One of the first things usually glanced over is teaching the notion of a group in terms of rotational and mirroring operations on a set of points, used extensively in Physics and Chemistry [(Point Groups)](https://en.wikipedia.org/wiki/Point_group). Fundamentally they simply describe a set of operations performed on these points which preserve the initial symmetry of a geometric object - whether that be a flag, organic molecule, etc., any object which contains *some* notion of symmetry *can* usually describe a point group. Its safe to say that these are exactly the permutation's we mentioned earlier - some type of transform which preserves symmetry upon an object. Cayley's Theorem somewhat capitalizes on this - treating elements in these finite groups as the "points" themselves and simply states instead of rotations or mirror operations, if we consider the image group operation per element, that these groups can be interpreted as sets of permuitations, in particular subgroups of $S_{|G|}$. 
 
 ## Theorem 1. Cayley's Theorem
-Let $$G$$ be a group with $$|G| = n$$. For any given $$g \in G$$, let $$l_g: G \rightarrow G$$ be the left multiplication map by $$g$$ - i.e., $$l_g(x) = gx$$. Furthermore let $$\varphi: G \rightarrow \text{Sym}(G)$$ be defined by $$\varphi(g) = l_g$$.
+Let $$G$$ be a group with $$|G| = n$$. For any given $$g \in G$$, let $$l_g: G \rightarrow G$$ be the left operation map by $$g$$ - i.e., $$l_g(x) = gx$$. Furthermore let $$\varphi: G \rightarrow \text{Sym}(G)$$ be defined by $$\varphi(g) = l_g$$.
 1. $$\varphi$$ is injective.
 2. $$\varphi$$ is a homomorphism.
 
 ### Proof Outline
-Pick any arbitrary element $$g \in G$$ and consider how it behaves as a left multiplication action. Then, consider its map $$\varphi: G \rightarrow S_{n}$$ and determine its properties. It shouldn't be too bad showing its homomorphic and injective properties, and from there you can either directly show the subgroup in $$S_{n}$$ or use [**Homomorphic Image of a Group is a Group**](https://planetmath.org/homomorphicimageofgroup)
+Pick any arbitrary element $$g \in G$$ and consider how it behaves as a left group operation action. Then, consider its map $$\varphi: G \rightarrow S_{n}$$ and determine its properties. It shouldn't be too bad showing its homomorphic and injective properties, and from there you can either directly show the subgroup in $$S_{n}$$ or use [**Homomorphic Image of a Group is a Group**](https://planetmath.org/homomorphicimageofgroup)
 
 ### Example
-Consider $$\mathbb{Z} / 5 \mathbb{Z} = \{0,1,2,3,4\} $$ and consider left addition by 1 - this is okay, since Cayley's theorem doesn't specify *exactly* what left multiplication is. $$\mathbb{Z} / 5 \mathbb{Z}$$ is an additive group on 5 elements.
+Consider $$\mathbb{Z} / 5 \mathbb{Z} = \{0,1,2,3,4\} $$ and consider left addition by 1 - this is okay, since Cayley's theorem doesn't specify *exactly* what the left group operation is. $$\mathbb{Z} / 5 \mathbb{Z}$$ is an additive group on 5 elements.
 
  This takes:
 1. $$ 0 \rightarrow 1 $$ 
@@ -40,7 +40,7 @@ $$ \begin{equation} \varphi(\mathbb{Z} / 5 \mathbb{Z}) = \{1_{S_5}, (01234), (13
 ## Cayley Graphs
 Lets try to motivate Cayley Graphs without relying too much on the definition. In my previous post, I demonstrated group generation is analogous to a BFS algorithm where in order to assert closedness while generating our groups, we simply multiply a "current" element with all "discovered" element. In that sense, group generation and consequently, finite groups themselves have a fairly obvious "graph representation" - for each $$g_i, g_j \in G$$, we have $i, j \in V$ and if there exists $h \in G$ such that $hg_i  = g_j$, then we have directed edge $(i,j) \in E$. This gives us a sort of basis towards connecting Group and Graph theory - but its way too messy! At worst, each node would have $|G| - 1$ edges - the node associated with $1_G$ would be exactly this case. 
 
-There is a fairly obvious solution though! Remember, finitely generated groups are exactly that: each element $g \in \left< S \right>$ is simply a composition of generators $s_1, s_2,...,s_n \in S$. What this mean is restricting edge-connectivity to simply checking where each element "goes" when multiplied with generators is sufficient enough to generate a connected digraph. Thus, an overview of the pseudocode should look something like: Given generating set $S$ and group $G = \left< S\right>$, with Graph $\mathcal{G} = (V,E)$:  
+There is a fairly obvious solution though! Remember, finitely generated groups are exactly that: each element $g \in \left< S \right>$ is simply a composition of generators $s_1, s_2,...,s_n \in S$. What this mean is restricting edge-connectivity to simply checking where each element "goes" when multiplied with generators is sufficient enough to generate a connected graph, translating the abstract *structure* described by a set of generating elements, to a concrete, geometric shape we can visualize and work with. An overview of the pseudocode should look something like: Given generating set $S$ and group $G = \left< S\right>$, with Graph $\mathcal{G} = (V,E)$:  
 1. For each $g \in G$, push $g\in V$ and find $$gS = \{ gs_1, gs_2,..., gs_n \}$$ 
 2. for each $gs \in gS$, we have a directed edge $$(g,gs) \in E$$
 
