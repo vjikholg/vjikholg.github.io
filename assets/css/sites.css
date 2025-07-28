@@ -6,14 +6,14 @@ html, body {
   font-family: system-ui, sans-serif;
 }
 
-#bg-graph{
+#bg-graph {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;        /* clicks go through to sidebar */
 }
 
-#sidebar{
+#sidebar {
   position: fixed;
   top: 0; left: 0;
   width: 260px;

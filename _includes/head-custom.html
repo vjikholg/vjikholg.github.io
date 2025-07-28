@@ -20,10 +20,9 @@
     body.sidebar-animated #sidebar {
       transition: transform 0.3s ease-out;
     }
-  </style>
 
-<!-- sidebar above everything else -->  
-  <style> 
+    /* <!-- sidebar above everything else -->  */ 
+
     #sidebar {
     position: fixed;       /* pin it to the viewport */
     top: 0;
@@ -33,31 +32,53 @@
     z-index: 9999;         /* above all other content */
     background: rgba(30,30,30,255); /* ensure it has an opaque background */
   }
+
+  #main-wrapper .container {
+      width: 100%; 
+      max-width: auto;      /* pick the line-length you like */
+      margin: 0; 
+      padding: 0; 
+      text-align: justify; 
+      text-justify: inter-word;
+  }
   </style>
+
 {% endif %}
 
-<!-- wider text --> 
-  <style> 
+<!-- centering override --> 
+{% if page.layout == "home" %}
+<style>
+  #topbar-wrapper { 
+    display: none; 
+  }
+
+  #panel-wrapper {
+    display: none;
+  }
+
+  #main-wrapper > .container.d-flex.flex-column.px-xxl-5 { 
+    min-height: 100vh; 
+  }
+
+  /*  wider text  */ 
     #main-wrapper .container {
-      max-width: auto;      /* pick the line-length you like */
-      margin-left:  auto;    /* these two lines center it */
-      margin-right: auto;
-      padding-left: 0;       /* remove the default 12-px gutter */
-      padding-right: 0;
+      width: 100%; 
+      max-width: none;      
+      margin: 0; 
+      padding: 0; 
+  }
+
+  #main-wrapper .container > .row { 
+    margin: 0; 
   }
 
   /* If you need to override even tighter column rules, you can do: */
     main[aria-label="Main Content"] {
       width: 100%;
       max-width: none;
-      padding-left: 1rem;    /* small inner gutter so text isn’t flush */
-      padding-right: 1rem;
-    text-align: justify;
-    text-justify: inter-word;   /* favors spacing between words */
+      padding: 0; 
   }
-  </style>
 
-<!-- centering override --> 
-<style>
-  
 </style> 
+
+  {% endif %}
