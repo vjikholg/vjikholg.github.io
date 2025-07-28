@@ -1,0 +1,35 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;           /* no scroll; sidebar should scroll internally if needed */
+  background: #000;           /* fallback */
+  font-family: system-ui, sans-serif;
+}
+
+#bg-graph{
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;        /* clicks go through to sidebar */
+}
+
+#sidebar{
+  position: fixed;
+  top: 0; left: 0;
+  width: 260px;
+  height: 100%;
+  background: rgba(20,20,20,.85);
+  color: #fff;
+  z-index: 10;
+  padding: 1rem 1.25rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+  backdrop-filter: blur(6px);
+}
+#sidebar a{
+  color: #9ad0ff;
+  text-decoration: none;
+  display: block;
+  margin: .4rem 0;
+}
+#sidebar a:hover { text-decoration: underline; }
