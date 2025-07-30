@@ -43,11 +43,7 @@ export class CayleyGraph {
             .distance(link => 30);
         
         this.update(group);
-
-            
-
-
-        
+        return this.graph; 
     }
 
     update(group) {

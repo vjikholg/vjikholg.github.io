@@ -28,7 +28,7 @@ const CAMERA_POS = {
     z: DIST * Math.sin(ELEV) * Math.sin(AZIM)
 }
 
-let cayleyGraph = new CayleyGraph(group1, 'force-graph').graph
+let cayleyGraph = new CayleyGraph(group1, 'force-graph')
     .width(wrapper.clientWidth)
     .height(wrapper.clientHeight)
     .cameraPosition(CAMERA_POS);
@@ -39,7 +39,9 @@ window.addEventListener("resize", () => {
         .height(wrapper.clientHeight)
 })
 
- 
+cayleyGraph.enableNavigationControls(false);
+cayleyGraph.showNavInfo(false);
+
 
 // const sel = document.getElementById('group-select');
 // 

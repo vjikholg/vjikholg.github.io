@@ -6,9 +6,10 @@
 
   <!-- hide sidebar by default, show on hover -->
   <style>
+
     /* no transition by default */
     #sidebar {
-      transform: translateX(-80%);
+      transform: translateX(-100%);
     }
     
     /* open state always applies the transform immediately */
@@ -54,6 +55,14 @@
 
   #panel-wrapper {
     display: none;
+  }
+
+  .row {
+    display: none;
+  }
+
+  .row.flex-grow-1 {
+    display: block;
   }
 
   #main-wrapper > .container.d-flex.flex-column.px-xxl-5 { 
